@@ -1,0 +1,21 @@
+.button {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+
+    border: none;
+    background-color: #dce6f5;
+
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    height: 40px;
+    width: 40px;
+}
