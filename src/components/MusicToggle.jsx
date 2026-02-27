@@ -3,17 +3,10 @@ import volumeOffIcon from "../assets/svg/volume-off.svg";
 import volumeOnIcon from "../assets/svg/volume-on.svg";
 import { useState } from "react";
 
-function MusicToggle({ toggleMusic }) {
-    const [musicOn, setMusicOn] = useState(true);
-
-    const buttonClick = () => {
-        toggleMusic();
-        setMusicOn(!musicOn);
-    };
-
+function MusicToggle({ toggleMusic, musicPlaying }) {
     return (
-        <button className={styles.button} onClick={buttonClick}>
-            <img className={styles.icon} src={musicOn ? volumeOnIcon : volumeOffIcon} />
+        <button className={styles.button} onClick={toggleMusic}>
+            <img className={styles.icon} src={musicPlaying ? volumeOnIcon : volumeOffIcon} />
         </button>
     );
 }
