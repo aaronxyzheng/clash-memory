@@ -1,0 +1,60 @@
+.losingScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.losingScreen > div {
+    background-color: #F2F6FB;
+    height: 60%;
+    width: 60%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.emojiDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.emojiDiv img {
+    height: 30%;
+    width: auto;
+}
+
+.textDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 3rem;
+
+}
+
+.mainText {
+    font-size: 5rem;
+}
+
+button {
+    height: 5rem;
+    width: 15rem;
+    font-size: 2rem;
+    border-radius: 10px;
+    background-color: #f7f7f3;
+}
+
+button:hover {
+    background-color: #f1f1ec;
+}

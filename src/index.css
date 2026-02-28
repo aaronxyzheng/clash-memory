@@ -1,7 +1,13 @@
+@font-face {
+    font-family: "Clash";
+    src: url("./assets/Clash_Regular.otf") format("opentype");
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: "Clash", sans-serif;
 }
 
 #root {
