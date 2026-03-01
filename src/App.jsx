@@ -15,19 +15,27 @@ function App() {
     const [gameCardUrls, setGameCardUrls] = useState(() => CardManager.chooseRandomCards(20));
     const [activeCardUrls, setActiveCardUrls] = useState(() => CardManager.chooseSubset(gameCardUrls, []));
     const [gameState, setGameState] = useState(null);
+    const [isShuffling, setIsShuffling] = useState(false);
+    const [turn, setTurn] = useState(0); // So that cards remount between rounds
     const clickedCards = useRef([]);
 
     const onCardClick = (url) => {
+        if (isShuffling) return;
         if (clickedCards.current.includes(url)) {
             setGameState("lost");
         } else {
             clickedCards.current.push(url);
-            const next = CardManager.chooseSubset(gameCardUrls, clickedCards.current);
-            if (next.length === 0) {
-                setGameState("won");
-            } else {
-                setActiveCardUrls(next);
-            }
+            setIsShuffling(true);
+            setTimeout(() => {
+                const next = CardManager.chooseSubset(gameCardUrls, clickedCards.current);
+                if (next.length === 0) {
+                    setGameState("won");
+                } else {
+                    setActiveCardUrls(next);
+                    setTurn((t) => t + 1);
+                    setIsShuffling(false);
+                }
+            }, 350);
         }
     };
 
@@ -36,14 +44,16 @@ function App() {
         setGameCardUrls(newCards);
         setActiveCardUrls(CardManager.chooseSubset(newCards, []));
         setGameState(null);
+        setTurn((t) => t + 1);
+        setIsShuffling(false);
         clickedCards.current = [];
     };
 
     return (
         <>
             <CardSection>
-                {activeCardUrls.map((url) => (
-                    <Card key={url} url={url} onClick={onCardClick} />
+                {activeCardUrls.map((url, index) => (
+                    <Card key={`${url}-${turn}`} url={url} onClick={onCardClick} isShuffling={isShuffling} index={index} />
                 ))}
             </CardSection>
 
