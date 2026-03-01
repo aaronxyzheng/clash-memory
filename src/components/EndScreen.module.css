@@ -1,4 +1,4 @@
-.losingScreen {
+.screen {
     position: fixed;
     top: 0;
     left: 0;
@@ -10,7 +10,7 @@
     align-items: center;
 }
 
-.losingScreen > div {
+.screen > div {
     background-color: #F2F6FB;
     height: 60%;
     width: 60%;

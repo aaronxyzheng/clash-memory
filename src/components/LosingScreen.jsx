@@ -1,10 +1,10 @@
-import styles from "./LosingScreen.module.css";
+import styles from "./EndScreen.module.css";
 import hogScreamEmote from "../assets/emotes/emote_hog_scream.png";
 import kingCryEmote from "../assets/emotes/emote_king_cry.png";
 
 function LosingScreen({ playAgain }) {
     return (
-        <div className={styles.losingScreen}>
+        <div className={styles.screen}>
             <div>
                 <div className={styles.emojiDiv}>
                     <img src={hogScreamEmote} />

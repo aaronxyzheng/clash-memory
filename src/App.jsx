@@ -6,25 +6,36 @@ import MusicToggle from "./components/MusicToggle";
 import CardSection from "./components/CardSection";
 import Card from "./components/Card";
 import LosingScreen from "./components/LosingScreen";
+import WinScreen from "./components/WinScreen";
+// Util
+import CardManager from "./utils/cards";
 
 function App() {
     const [musicPlaying, toggleMusic] = useMusic();
-    const [activeCardUrls, setActiveCardUrls] = useState(() => chooseRandomCards(5));
-    const [gameLost, setGameLost] = useState(false);
+    const [gameCardUrls, setGameCardUrls] = useState(() => CardManager.chooseRandomCards(20));
+    const [activeCardUrls, setActiveCardUrls] = useState(() => CardManager.chooseSubset(gameCardUrls, []));
+    const [gameState, setGameState] = useState(null);
     const clickedCards = useRef([]);
 
     const onCardClick = (url) => {
         if (clickedCards.current.includes(url)) {
-            setGameLost(true);
+            setGameState("lost");
         } else {
             clickedCards.current.push(url);
-            console.log(url);
+            const next = CardManager.chooseSubset(gameCardUrls, clickedCards.current);
+            if (next.length === 0) {
+                setGameState("won");
+            } else {
+                setActiveCardUrls(next);
+            }
         }
     };
 
     const playAgain = () => {
-        setActiveCardUrls(() => chooseRandomCards(5));
-        setGameLost(false);
+        const newCards = CardManager.chooseRandomCards(20);
+        setGameCardUrls(newCards);
+        setActiveCardUrls(CardManager.chooseSubset(newCards, []));
+        setGameState(null);
         clickedCards.current = [];
     };
 
@@ -37,7 +48,8 @@ function App() {
             </CardSection>
 
             <MusicToggle toggleMusic={toggleMusic} musicPlaying={musicPlaying} />
-            {gameLost && <LosingScreen playAgain={playAgain} />}
+            {gameState === "lost" && <LosingScreen playAgain={playAgain} />}
+            {gameState === "won" && <WinScreen playAgain={playAgain} />}
         </>
     );
 }
