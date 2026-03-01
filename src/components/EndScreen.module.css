@@ -45,6 +45,7 @@
 
 .mainText {
     font-size: 5rem;
+    text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 button {
@@ -52,9 +53,21 @@ button {
     width: 15rem;
     font-size: 2rem;
     border-radius: 10px;
-    background-color: #f7f7f3;
+    border: 2px solid #c0c0b8;
+    cursor: pointer;
+    background-color: rgb(243, 243, 238);
+    box-shadow: 0 5px 0 #c0c0b8;
+    transition: transform 0.1s, box-shadow 0.1s;
+    font-family: inherit;
 }
 
 button:hover {
     background-color: #f1f1ec;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 #c0c0b8;
+}
+
+button:active {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #c0c0b8;
 }

@@ -1,0 +1,42 @@
+.panel {
+    position: fixed;
+    top: 1.5rem;
+    left: 1.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 0.8rem 1.2rem;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    backdrop-filter: blur(6px);
+    min-width: 9rem;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1.5rem;
+}
+
+.label {
+    font-size: 0.9rem;
+    opacity: 0.65;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.value {
+    font-size: 1.5rem;
+}
+
+.best {
+    color: #ffd700;
+}
+
+.divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.15);
+}
