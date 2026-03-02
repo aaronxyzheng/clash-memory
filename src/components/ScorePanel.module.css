@@ -40,3 +40,24 @@
     height: 1px;
     background: rgba(255, 255, 255, 0.15);
 }
+
+@media (max-width: 600px) {
+    .panel {
+        top: 0.75rem;
+        left: 0.75rem;
+        padding: 0.5rem 0.8rem;
+        min-width: 7rem;
+    }
+
+    .row {
+        gap: 0.8rem;
+    }
+
+    .label {
+        font-size: 0.75rem;
+    }
+
+    .value {
+        font-size: 1.1rem;
+    }
+}

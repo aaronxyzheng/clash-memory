@@ -2,6 +2,8 @@
 
 A Clash Royale-themed memory card game built with React.
 
+**[Play the game](https://clash-memory.vercel.app)** 🔗
+
 https://github.com/user-attachments/assets/485563d4-dbe8-4af2-a324-fd449d29dd2a
 
 ## How to Play

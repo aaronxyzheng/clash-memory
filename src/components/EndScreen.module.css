@@ -20,7 +20,6 @@
     align-items: center;
 }
 
-
 .emojiDiv {
     display: flex;
     flex-direction: column;
@@ -40,7 +39,6 @@
     justify-content: center;
     height: 100%;
     gap: 3rem;
-
 }
 
 .mainText {
@@ -70,4 +68,45 @@ button:hover {
 button:active {
     transform: translateY(3px);
     box-shadow: 0 2px 0 #c0c0b8;
+}
+
+@media (max-width: 1024px) {
+    .screen > div {
+        width: 80%;
+    }
+}
+
+@media (max-width: 600px) {
+    .screen > div {
+        width: 92%;
+        height: auto;
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    .emojiDiv {
+        height: auto;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .emojiDiv img {
+        height: clamp(60px, 15vw, 90px);
+    }
+
+    .textDiv {
+        height: auto;
+        gap: 1.5rem;
+    }
+
+    .mainText {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+    }
+
+    button {
+        height: clamp(3rem, 10vw, 4rem);
+        width: min(15rem, 80%);
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
+    }
 }
